@@ -116,17 +116,17 @@
   # Use an iteration block to print driver's total rides and money made
 
   ride_database.each do |driver_id, rides|
-  puts "Driver Id: #{driver_id} -- "
+    puts "Driver Id: #{driver_id} -- "
 
-  total_earned = 0
-  number_of_rides = 0
-  rating_total = 0
+    total_earned = 0
+    number_of_rides = 0
+    rating_total = 0
 
-  rides.each do |data|
-    total_earned += data[:Cost]
-    rating_total += data[:Rating]
-    number_of_rides = rides.length
+    rides.each do |data|
+      total_earned += data[:Cost]
+      rating_total += data[:Rating]
+      number_of_rides = rides.length
+    end
+
+    print "Driver #{driver_id} gave #{number_of_rides} rides. They earned $#{'%.2f' % total_earned} and had an average rating of #{rating_total / number_of_rides.to_f }.\n\n"
   end
-
-  print "Driver #{driver_id} gave #{number_of_rides} rides. They earned $#{'%.2f' % total_earned} and had an average rating of #{rating_total / number_of_rides.to_f }.\n\n"
-end
